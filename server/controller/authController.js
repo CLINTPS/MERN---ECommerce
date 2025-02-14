@@ -8,7 +8,6 @@ const generateToken = (id) => {
 
 const registerUser = async (req, res) => {
   console.log("Register user data", req.body);
-  console.log("Register user data", req.body);
   const { name, email, password } = req.body;
   const userExists = await User.findOne({ email });
   console.log("Register existuser", userExists);
@@ -41,6 +40,7 @@ const loginUser = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      role: user.role,
       token: generateToken(user._id),
     });
   } else {
