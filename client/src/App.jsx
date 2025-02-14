@@ -10,8 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
 
   const dispatch = useDispatch();
-  // const userData = useSelector((state)=>state.user.userData)
-  // console.log("Current user Details",userData);
+  const userData = useSelector((state)=>state.user)
+  console.log("Current user Details",userData);
   
 
 

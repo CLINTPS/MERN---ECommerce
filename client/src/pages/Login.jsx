@@ -26,7 +26,7 @@ const Login = () => {
       if (loginUser.rejected.match(resultAction)) {
         console.log("Login failed:", resultAction.error.message);
       } else {
-        navigate("/dashboard");
+        navigate("/userHome");
       }
     },
   });

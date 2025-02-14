@@ -15,7 +15,7 @@ export const loginUser = createAsyncThunk(
       const response = await axios.post(`${API_URL}/login`, userData);
       console.log("Redux login response data",response);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("user", JSON.stringify(response.data));
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
@@ -41,7 +41,7 @@ export const registerUser = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: storedUser ? JSON.parse(storedUser) : null,
+    user: storedUser || null,
     token: storedToken || null,
     loading: false,
     error: null,
